@@ -6,16 +6,11 @@ const config: Config = {
     "./components/**/*.{ts,tsx}",
     "./layout/**/*.{ts,tsx}",
   ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+  theme: {},
+  daisyui: {
+    themes: ["light", "dracula"],
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
 
 export default config;
