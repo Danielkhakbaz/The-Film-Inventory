@@ -14,7 +14,7 @@ const MoviesPage = async ({
     return <AllMovies />;
   }
 
-  return <p>{searchParams.playlist}</p>;
+  return <>{searchParams.playlist}</>;
 };
 
 export default MoviesPage;
