@@ -47,11 +47,7 @@ export const MenuItems: MenuItemsType[] = [
   },
   {
     key: 4,
-    component: (
-      <>
-        <ThemeController />
-      </>
-    ),
+    component: <ThemeController />,
     divider: <div className="divider divider-horizontal m-0" />,
   },
   {
@@ -63,5 +59,60 @@ export const MenuItems: MenuItemsType[] = [
         </div>
       </div>
     ),
+  },
+];
+
+export const PhoneMenuItems: MenuItemsType[] = [
+  {
+    key: 5,
+    component: (
+      <div className="avatar placeholder flex justify-between">
+        <div className="w-7 bg-red-400 text-neutral-content rounded-full">
+          <span className="text-sm">D</span>
+        </div>
+        <span className="font-semibold">Danial Khakbaz</span>
+      </div>
+    ),
+    divider: <div className="divider m-0" />,
+  },
+  {
+    key: 1,
+    component: <Link href="/">Home</Link>,
+  },
+  {
+    key: 2,
+    component: (
+      <>
+        <summary>Playlists</summary>
+        <ul className="rounded-t-none p-2">
+          <li>
+            <Link
+              className="whitespace-nowrap"
+              href="/movies?playlist=favorites"
+            >
+              <FaStar />
+              Favorites
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="whitespace-nowrap"
+              href="/movies?playlist=watch-later"
+            >
+              <FaStopwatch />
+              Watch Later
+            </Link>
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    key: 3,
+    component: <Link href="/about">About</Link>,
+  },
+  {
+    key: 4,
+    component: <ThemeController />,
   },
 ];

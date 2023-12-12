@@ -1,6 +1,6 @@
 const ThemeController = async () => {
   return (
-    <label className="swap swap-rotate">
+    <label className="swap swap-rotate btn btn-sm btn-neutral lg:btn-md lg:btn-ghost">
       <input type="checkbox" className="theme-controller" value="dracula" />
       <svg
         className="swap-off fill-current w-5 h-5"

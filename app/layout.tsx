@@ -21,8 +21,12 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" data-theme="light">
       <body className={inter.className}>
-        {<Navbar />}
-        <main className="p-4">{children}</main>
+        <Navbar />
+        <main className="w-full h-full flex justify-center items-center p-4">
+          <div className="w-full md:w-11/12 lg:w-10/12 xl:w-9/12">
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   );
