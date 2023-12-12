@@ -18,7 +18,7 @@ const AllMovies = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-8">
+    <div className="h-[calc(100vh-120px)] flex flex-col justify-center items-center gap-8">
       <div className="w-4/5 font-bold text-2xl flex flex-col text-center">
         {beenHere === "" ? (
           <div className="">Wait for a moment...</div>
@@ -26,7 +26,7 @@ const AllMovies = () => {
           <div className="flex flex-col items-center gap-8">
             <Title emoji="✅" title="Welcome Back" />
             <p className="font-bold text-2xl text-center">
-              You&apos;ve already been here, so you know how the things go!{" "}
+              You&apos;ve already been here, so you know how things go!
               <br />
               Go ahead and check your playlists!
             </p>
@@ -43,11 +43,12 @@ const AllMovies = () => {
                     There were tons of movies on the homepage. What are you
                     doing here?
                     <br />
-                    I told you that there&apos;s only 2 playlists here. <br />
-                    For the last time, I put 2 buttons down below for you and
-                    only you to go to your playlists! <br />
+                    I told you that there are only 2 playlists here. <br />
+                    For the last time, I&apos;ve placed 2 buttons down below
+                    specially for you to go to your playlists! <br />
                     Focus up, because there&apos;s a slight chance that those
                     buttons will get removed from here! <br />
+                    Click on the button below to see them.
                   </span>
                 </p>
                 <button
@@ -71,10 +72,9 @@ const AllMovies = () => {
                   <Title emoji="😂" title="SIKEEEEEEEEEEEEEE" />
                   <br />
                   <span className="leading-10">
-                    You belived me? Come&apos;on man. I was just messing with
-                    you! 😂
+                    Come on man. You belived me? I was just messing with you! 😂
                     <br />
-                    Feel free to come here and I promise you, I won&apos;t mess
+                    Feel free to come here, and I promise you, I won&apos;t mess
                     with you again! Maybe.😅
                   </span>
                 </p>
