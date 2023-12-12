@@ -11,11 +11,11 @@ type ErrorProps = {
 const Error = ({ error, reset }: ErrorProps) => {
   return (
     <>
-      <div className="hero min-h-screen">
+      <div className="hero h-[calc(100vh-150px)]">
         <div className="hero-content text-center">
           <div className="flex flex-col items-center gap-12">
             <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl">
-              An error occurred!{" "}
+              An error occurred!
             </h1>
             <div dir="ltr" className="mockup-code">
               <pre>
