@@ -26,7 +26,7 @@ const AllMovies = () => {
           <div className="flex flex-col items-center gap-8">
             <Title emoji="✅" title="Welcome Back" />
             <p className="font-bold text-2xl text-center">
-              You`&apos;`ve already been here, so you know how the things go!{" "}
+              You&apos;ve already been here, so you know how the things go!{" "}
               <br />
               Go ahead and check your playlists!
             </p>
@@ -43,10 +43,10 @@ const AllMovies = () => {
                     There were tons of movies on the homepage. What are you
                     doing here?
                     <br />
-                    I told you that there`&apos;`s only 2 playlists here. <br />
+                    I told you that there&apos;s only 2 playlists here. <br />
                     For the last time, I put 2 buttons down below for you and
                     only you to go to your playlists! <br />
-                    Focus up, because there`&apos;`s a slight chance that those
+                    Focus up, because there&apos;s a slight chance that those
                     buttons will get removed from here! <br />
                   </span>
                 </p>
@@ -71,11 +71,11 @@ const AllMovies = () => {
                   <Title emoji="😂" title="SIKEEEEEEEEEEEEEE" />
                   <br />
                   <span className="leading-10">
-                    You belived me? Come`&apos;`on man. I was just messing with
+                    You belived me? Come&apos;on man. I was just messing with
                     you! 😂
                     <br />
-                    Feel free to come here and I promise you, I won`&apos;`t
-                    mess with you again! Maybe.😅
+                    Feel free to come here and I promise you, I won&apos;t mess
+                    with you again! Maybe.😅
                   </span>
                 </p>
                 <ButtonLinks />
