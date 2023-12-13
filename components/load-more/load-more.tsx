@@ -1,5 +1,3 @@
-"use client";
-
 import { forwardRef } from "react";
 import Image from "next/image";
 import SpinnerImage from "public/images/spinner.svg";
