@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "The Film Inventory",
   description: "Developed by Next14 as the full-stack framework.",
   icons: {
-    icon: ["/favicon.png"],
+    icon: ["/images/favicon.png"],
   },
 };
 
@@ -23,9 +23,7 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
       <body className={inter.className}>
         <Layout>
           <main className="w-full flex justify-center p-4">
-            <div className="w-full md:w-11/12 lg:w-10/12 xl:w-9/12">
-              {children}
-            </div>
+            <div className="w-full md:w-11/12 lg:w-10/12">{children}</div>
           </main>
         </Layout>
       </body>
