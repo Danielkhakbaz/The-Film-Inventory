@@ -1,6 +1,6 @@
 const Footer = async () => {
   return (
-    <footer className="footer justify-center p-4 bg-neutral text-neutral-content rounded-t-xl">
+    <footer className="footer bg-neutral text-neutral-content justify-center rounded-t-xl p-4">
       <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
     </footer>
   );
