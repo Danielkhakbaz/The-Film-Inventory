@@ -4,6 +4,7 @@ import { forwardRef } from "react";
 import Image from "next/image";
 import SpinnerImage from "public/images/spinner.svg";
 
+// eslint-disable-next-line react/display-name
 const LoadMore = forwardRef((props, ref) => {
   return (
     <section className="flex justify-center items-center w-full">
@@ -19,7 +20,5 @@ const LoadMore = forwardRef((props, ref) => {
     </section>
   );
 });
-
-LoadMore.displayName = "LoadMore";
 
 export default LoadMore;
