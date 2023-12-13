@@ -1,19 +1,27 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Card from "components/card/card";
+import LoadMore from "components/load-more/load-more";
 import { fetchMovies } from "services/action";
+import { useInView } from "react-intersection-observer";
+import { MovieType } from "components/card/card-type";
 
-type MovieType = {
-  id: number;
-  name: string;
-  image: {
-    original: string;
-  };
-  kind: string;
-  score: string;
-  episodes: number;
-};
+const CardContainer = () => {
+  const [movies, setMovies] = useState<MovieType[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
-const CardContainer = async () => {
-  const movies = await fetchMovies(1);
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      fetchMovies(currentPage).then((res) => {
+        setMovies([...movies, ...res]);
+
+        setCurrentPage((previousValue) => previousValue + 1);
+      });
+    }
+  }, [inView, movies, currentPage]);
 
   return (
     <>
@@ -23,6 +31,7 @@ const CardContainer = async () => {
           <Card key={movie.id} movie={movie} />
         ))}
       </div>
+      <LoadMore ref={ref} />
     </>
   );
 };

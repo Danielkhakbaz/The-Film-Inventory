@@ -1,18 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { MovieType } from "components/card/card-type";
 import { FaLayerGroup, FaRegStar } from "react-icons/fa6";
 
-type MovieType = {
-  id: number;
-  name: string;
-  image: {
-    original: string;
-  };
-  kind: string;
-  score: string;
-  episodes: number;
-};
-
-const Card = async ({ movie }: { movie: MovieType }) => {
+const Card = ({ movie }: { movie: MovieType }) => {
   const movieTypeDetector = (kind: string) => {
     switch (kind) {
       case "movie": {
@@ -38,7 +30,7 @@ const Card = async ({ movie }: { movie: MovieType }) => {
           fill
         />
       </figure>
-      <div className="card-body gap-6">
+      <div className="card-body gap-6 p-6">
         <div className="flex justify-between items-center">
           <h2 className="card-title line-clamp-1">{movie.name}</h2>
           <span className="badge badge-sm badge-info font-bold">
