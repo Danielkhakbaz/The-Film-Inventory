@@ -34,6 +34,7 @@ const Card = async ({ movie }: { movie: MovieType }) => {
           className="rounded-xl"
           src={`https://shikimori.one${movie.image.original}`}
           alt={movie.name}
+          sizes="200"
           fill
         />
       </figure>
