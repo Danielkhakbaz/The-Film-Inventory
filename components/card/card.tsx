@@ -2,9 +2,15 @@
 
 import Image from "next/image";
 import { MovieType } from "components/card/card-type";
+import { MotionDiv } from "components/motion/motion-div";
 import { FaLayerGroup, FaRegStar } from "react-icons/fa6";
 
-const Card = ({ movie }: { movie: MovieType }) => {
+type CardProps = {
+  movie: MovieType;
+  index: number;
+};
+
+const Card = ({ movie, index }: CardProps) => {
   const movieTypeDetector = (kind: string) => {
     switch (kind) {
       case "movie": {
@@ -20,7 +26,21 @@ const Card = ({ movie }: { movie: MovieType }) => {
   };
 
   return (
-    <div className="card w-full shadow-2xl">
+    <MotionDiv
+      className="card w-full shadow-2xl"
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{
+        delay: index * 0.1,
+        ease: "easeInOut",
+        duration: 0.5,
+      }}
+      viewport={{ amount: 0 }}
+    >
       <figure className="w-full h-[37vh] relative">
         <Image
           className="rounded-xl"
@@ -47,7 +67,7 @@ const Card = ({ movie }: { movie: MovieType }) => {
           </span>
         </div>
       </div>
-    </div>
+    </MotionDiv>
   );
 };
 

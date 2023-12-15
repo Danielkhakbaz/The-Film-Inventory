@@ -27,8 +27,8 @@ const CardContainer = () => {
     <>
       <h2 className="font-bold text-4xl">Explore Movies</h2>
       <div className="w-full grid grid-cols-2 justify-center items-center gap-8 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {movies.map((movie: MovieType) => (
-          <Card key={movie.id} movie={movie} />
+        {movies.map((movie: MovieType, index: number) => (
+          <Card key={movie.id} movie={movie} index={index} />
         ))}
       </div>
       <LoadMore ref={ref} />
