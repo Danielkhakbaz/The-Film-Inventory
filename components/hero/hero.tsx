@@ -1,7 +1,22 @@
+import MotionComponent from "components/motion/motion-component";
+
 const Hero = async () => {
   return (
-    <div
+    <MotionComponent
+      tag="div"
       className="hero w-full h-[550px] border rounded-2xl"
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{
+        delay: 0.1,
+        ease: "easeInOut",
+        duration: 0.5,
+      }}
+      viewport={{ amount: 0 }}
       style={{
         backgroundImage: "url(/images/hero-background.jpg)",
       }}
@@ -22,7 +37,7 @@ const Hero = async () => {
           </p>
         </div>
       </div>
-    </div>
+    </MotionComponent>
   );
 };
 

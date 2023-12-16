@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { MovieType } from "components/card/card-type";
-import { MotionDiv } from "components/motion/motion-div";
+import MotionComponent from "components/motion/motion-component";
 import { FaLayerGroup, FaRegStar } from "react-icons/fa6";
 
 type CardProps = {
@@ -26,7 +26,8 @@ const Card = ({ movie, index }: CardProps) => {
   };
 
   return (
-    <MotionDiv
+    <MotionComponent
+      tag="div"
       className="card w-full shadow-2xl"
       initial={{
         opacity: 0,
@@ -67,7 +68,7 @@ const Card = ({ movie, index }: CardProps) => {
           </span>
         </div>
       </div>
-    </MotionDiv>
+    </MotionComponent>
   );
 };
 
