@@ -34,7 +34,7 @@ const Card = ({ movie, index }: CardProps) => {
         opacity: 1,
       }}
       transition={{
-        delay: index * 0.1,
+        delay: index * 0.15,
         ease: "easeInOut",
         duration: 0.5,
       }}

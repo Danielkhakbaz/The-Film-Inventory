@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 type MotionComponentProps = {
   tag: string;
-  className: string;
+  className?: string;
   children: React.ReactNode;
   [key: string]: unknown;
 };

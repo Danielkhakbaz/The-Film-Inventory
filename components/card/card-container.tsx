@@ -34,7 +34,7 @@ const CardContainer = ({ PageOneMovies }: { PageOneMovies: JSX.Element[] }) => {
           opacity: 1,
         }}
         transition={{
-          delay: 0.1,
+          delay: 0.4,
           ease: "easeInOut",
           duration: 0.5,
         }}

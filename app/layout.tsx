@@ -22,7 +22,7 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
     <html lang="en" data-theme="light">
       <body className={inter.className}>
         <Layout>
-          <main className="w-full flex justify-center p-4">
+          <main className="w-full min-h-[calc(100vh-100px)] flex justify-center p-4">
             <div className="w-full md:w-11/12 lg:w-10/12">{children}</div>
           </main>
         </Layout>
