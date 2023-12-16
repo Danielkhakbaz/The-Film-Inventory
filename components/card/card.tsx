@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { MovieType } from "components/card/card-type";
 import MotionComponent from "components/motion/motion-component";
