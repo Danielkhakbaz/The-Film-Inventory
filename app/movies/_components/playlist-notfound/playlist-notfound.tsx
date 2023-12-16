@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Title from "app/movies/_common/title/title";
 import ButtonLinks from "app/movies/_common/button-links/button-links";
 
-const AllMovies = () => {
+const PlaylistNotfound = () => {
   const [isReady, setIsReady] = useState(false);
   const [beenHere, setBeenHere] = useState<string>("");
   const [sikeAudio, setSikeAudio] = useState<HTMLAudioElement>();
@@ -88,4 +88,4 @@ const AllMovies = () => {
   );
 };
 
-export default AllMovies;
+export default PlaylistNotfound;
