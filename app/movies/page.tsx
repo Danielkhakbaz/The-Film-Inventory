@@ -1,7 +1,9 @@
+"use client";
+
 import PlaylistNotFound from "app/movies/_components/playlist-notfound/playlist-notfound";
 import MotionComponent from "components/motion/motion-component";
 
-const MoviesPage = async ({
+const MoviesPage = ({
   searchParams,
 }: {
   searchParams: {
@@ -14,6 +16,18 @@ const MoviesPage = async ({
   ) {
     return <PlaylistNotFound />;
   }
+
+  const handleGetMovies = () => {
+    fetch("http://localhost:3000/api/movies", {
+      method: "GET",
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <section className="py-6">
@@ -34,6 +48,9 @@ const MoviesPage = async ({
         viewport={{ amount: 0 }}
       >
         {searchParams.playlist}
+        <button className="btn btn-secondary" onClick={handleGetMovies}>
+          Click
+        </button>
       </MotionComponent>
     </section>
   );

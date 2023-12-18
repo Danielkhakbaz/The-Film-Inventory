@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 const Avatar = () => {
@@ -9,20 +10,27 @@ const Avatar = () => {
   return (
     <>
       {status === "loading" ? (
-        <p>Loading...</p>
+        <div className="skeleton w-20" />
       ) : status === "authenticated" ? (
-        <div className="avatar placeholder">
-          <div className="w-7 bg-red-400 text-neutral-content rounded-full">
-            <Image
-              src={data.user?.image as string}
-              alt="the user's github image"
-              width={10}
-              height={10}
-            />
+        <Link href="http://localhost:3000/api/auth/signout">
+          <div className="avatar placeholder items-center gap-4">
+            <div className="w-7 bg-red-400 text-neutral-content rounded-full">
+              <Image
+                src={data.user?.image as string}
+                alt="the user's github image"
+                width={10}
+                height={10}
+              />
+            </div>
+            Sign out
           </div>
-        </div>
+        </Link>
       ) : (
-        status === "unauthenticated" && <p>Sign in</p>
+        status === "unauthenticated" && (
+          <Link href="http://localhost:3000/api/auth/signin" className="w-20">
+            Sign in
+          </Link>
+        )
       )}
     </>
   );

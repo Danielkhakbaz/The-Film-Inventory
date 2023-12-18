@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { MovieType } from "components/card/card-type";
 import MotionComponent from "components/motion/motion-component";
-import { FaLayerGroup, FaRegStar, FaStar, FaStopwatch } from "react-icons/fa6";
+import CardActions from "components/card/card-actions";
+import { FaLayerGroup, FaRegStar } from "react-icons/fa6";
 
 type CardProps = {
   movie: MovieType;
@@ -65,18 +66,7 @@ const Card = ({ movie, index }: CardProps) => {
             <span>{movie.score}</span>
           </span>
         </div>
-        <div className="card-actions flex-row flex-nowrap whitespace-nowrap">
-          <div className="tooltip" data-tip="Save to Favorites">
-            <button className="btn btn-warning w-min">
-              <FaStar className="text-lg" />
-            </button>
-          </div>
-          <div className="tooltip" data-tip="Add to Watch Later">
-            <button className="btn btn-accent w-full">
-              <FaStopwatch className="text-lg" />
-            </button>
-          </div>
-        </div>
+        <CardActions movie={movie} />
       </div>
     </MotionComponent>
   );
