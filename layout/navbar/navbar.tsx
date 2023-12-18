@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MenuItems, PhoneMenuItems } from "layout/navbar/menu-items";
 import { FaFortAwesomeAlt } from "react-icons/fa6";
 
-const Navbar = async () => {
+const Navbar = () => {
   return (
     <nav className="navbar border rounded-b-xl">
       <div className="navbar-start">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeController from "components/theme-controller/theme-controller";
+import Avatar from "layout/navbar/avatar";
 import { FaStar, FaStopwatch } from "react-icons/fa6";
 
 type MenuItemsType = {
@@ -52,13 +53,7 @@ export const MenuItems: MenuItemsType[] = [
   },
   {
     key: 5,
-    component: (
-      <div className="avatar placeholder">
-        <div className="w-7 bg-red-400 text-neutral-content rounded-full">
-          <span className="text-sm">D</span>
-        </div>
-      </div>
-    ),
+    component: <Avatar />,
   },
 ];
 

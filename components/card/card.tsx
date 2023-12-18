@@ -67,12 +67,12 @@ const Card = ({ movie, index }: CardProps) => {
         </div>
         <div className="card-actions flex-row flex-nowrap whitespace-nowrap">
           <div className="tooltip" data-tip="Save to Favorites">
-            <button className="btn btn-warning">
+            <button className="btn btn-warning w-min">
               <FaStar className="text-lg" />
             </button>
           </div>
           <div className="tooltip" data-tip="Add to Watch Later">
-            <button className="btn btn-accent">
+            <button className="btn btn-accent w-full">
               <FaStopwatch className="text-lg" />
             </button>
           </div>

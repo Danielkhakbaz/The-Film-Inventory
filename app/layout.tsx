@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Layout from "layout/layout";
+import { SessionProviderFromNextAuth } from "providers/session/session";
 import "styles/globals.css";
 
 type RootLayoutProps = {
@@ -20,13 +21,15 @@ export const metadata: Metadata = {
 const RootLayout = async ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" data-theme="light">
-      <body className={inter.className}>
-        <Layout>
-          <main className="w-full min-h-[calc(100vh-100px)] flex justify-center p-4">
-            <div className="w-full md:w-11/12 lg:w-10/12">{children}</div>
-          </main>
-        </Layout>
-      </body>
+      <SessionProviderFromNextAuth>
+        <body className={inter.className}>
+          <Layout>
+            <main className="w-full min-h-[calc(100vh-100px)] flex justify-center p-4">
+              <div className="w-full md:w-11/12 lg:w-10/12">{children}</div>
+            </main>
+          </Layout>
+        </body>
+      </SessionProviderFromNextAuth>
     </html>
   );
 };
