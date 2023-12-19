@@ -60,14 +60,7 @@ export const MenuItems: MenuItemsType[] = [
 export const PhoneMenuItems: MenuItemsType[] = [
   {
     key: 5,
-    component: (
-      <div className="avatar placeholder flex justify-between">
-        <div className="w-7 bg-red-400 text-neutral-content rounded-full">
-          <span className="text-sm">D</span>
-        </div>
-        <span className="font-semibold">Danial Khakbaz</span>
-      </div>
-    ),
+    component: <Avatar />,
     divider: <div className="divider m-0" />,
   },
   {

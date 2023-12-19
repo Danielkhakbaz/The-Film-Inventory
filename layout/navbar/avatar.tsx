@@ -13,7 +13,7 @@ const Avatar = () => {
         <div className="skeleton w-20" />
       ) : status === "authenticated" ? (
         <Link href="http://localhost:3000/api/auth/signout">
-          <div className="avatar placeholder items-center gap-4">
+          <div className="avatar w-full placeholder items-center gap-4">
             <div className="w-7 bg-red-400 text-neutral-content rounded-full">
               {data.user?.image ? (
                 <Image
@@ -31,7 +31,10 @@ const Avatar = () => {
         </Link>
       ) : (
         status === "unauthenticated" && (
-          <Link href="http://localhost:3000/api/auth/signin" className="w-20">
+          <Link
+            href="http://localhost:3000/api/auth/signin"
+            className="w-full border-2 lg:border-none"
+          >
             Sign in
           </Link>
         )

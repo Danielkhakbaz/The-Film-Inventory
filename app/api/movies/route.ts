@@ -21,8 +21,6 @@ export async function GET(request: NextApiRequest) {
 
   let movies;
 
-  console.log(playlist);
-
   if (playlist === "favorites") {
     movies = await Prisma.movie.findMany({
       where: {

@@ -1,7 +1,9 @@
 import Image from "next/image";
+import { getServerSession } from "next-auth";
 import { MovieType } from "components/card/card-type";
 import MotionComponent from "components/motion/motion-component";
 import CardActions from "components/card/card-actions";
+import { AuthOptions } from "auth/authOptions";
 import { FaLayerGroup, FaRegStar } from "react-icons/fa6";
 
 type CardProps = {
@@ -9,7 +11,9 @@ type CardProps = {
   index: number;
 };
 
-const Card = ({ movie, index }: CardProps) => {
+const Card = async ({ movie, index }: CardProps) => {
+  const session = await getServerSession(AuthOptions);
+
   const movieTypeDetector = (kind: string) => {
     switch (kind) {
       case "movie": {
@@ -66,7 +70,7 @@ const Card = ({ movie, index }: CardProps) => {
             <span>{movie.score}</span>
           </span>
         </div>
-        <CardActions movie={movie} />
+        {session && <CardActions movie={movie} />}
       </div>
     </MotionComponent>
   );
