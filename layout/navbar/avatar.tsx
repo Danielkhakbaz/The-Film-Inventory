@@ -15,12 +15,16 @@ const Avatar = () => {
         <Link href="http://localhost:3000/api/auth/signout">
           <div className="avatar placeholder items-center gap-4">
             <div className="w-7 bg-red-400 text-neutral-content rounded-full">
-              <Image
-                src={data.user?.image as string}
-                alt="the user's github image"
-                width={10}
-                height={10}
-              />
+              {data.user?.image ? (
+                <Image
+                  src={data.user?.image as string}
+                  alt="the user's github image"
+                  width={10}
+                  height={10}
+                />
+              ) : (
+                <span>{data.user?.name?.slice(0, 1)}</span>
+              )}
             </div>
             Sign out
           </div>

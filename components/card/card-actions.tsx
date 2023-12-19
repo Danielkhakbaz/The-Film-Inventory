@@ -17,7 +17,7 @@ const CardActions = ({ movie }: CardActionsProps) => {
             fetch("http://localhost:3000/api/movies", {
               method: "POST",
               body: JSON.stringify({
-                title: movie.name,
+                name: movie.name,
                 image: movie.image.original,
                 kind: movie.kind,
                 score: movie.score,
@@ -37,7 +37,7 @@ const CardActions = ({ movie }: CardActionsProps) => {
             fetch("http://localhost:3000/api/movies", {
               method: "POST",
               body: JSON.stringify({
-                title: movie.name,
+                name: movie.name,
                 image: movie.image.original,
                 kind: movie.kind,
                 score: movie.score,
