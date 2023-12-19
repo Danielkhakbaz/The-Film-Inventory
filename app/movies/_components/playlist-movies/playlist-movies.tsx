@@ -12,19 +12,19 @@ type PlaylistMoviesProps = {
 const PlaylistMovies = ({ playlist }: PlaylistMoviesProps) => {
   const [movies, setMovies] = useState([]);
 
-  const fetchMovies = async () => {
-    await fetch(`http://localhost:3000/api/movies?playlist=${playlist}`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setMovies(data);
-      });
-  };
-
   useEffect(() => {
+    const fetchMovies = async () => {
+      await fetch(`http://localhost:3000/api/movies?playlist=${playlist}`)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setMovies(data);
+        });
+    };
+
     fetchMovies();
-  });
+  }, [playlist]);
 
   return (
     <>
