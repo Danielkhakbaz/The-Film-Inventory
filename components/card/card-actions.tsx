@@ -9,20 +9,21 @@ type CardActionsProps = {
 
 const CardActions = ({ movie }: CardActionsProps) => {
   return (
-    <div className="card-actions w-full flex-col flex-nowrap whitespace-nowrap sm:flex-row">
-      <div className="tooltip w-full sm:w-1/4" data-tip="Save to Favorites">
+    <div className="card-actions w-full flex-col flex-nowrap whitespace-nowrap md:flex-row">
+      <div className="tooltip w-full md:w-1/4" data-tip="Save to Favorites">
         <button
           className="btn btn-warning w-full"
           onClick={() =>
             fetch("http://localhost:3000/api/movies", {
               method: "POST",
               body: JSON.stringify({
+                id: movie.id,
                 name: movie.name,
                 image: movie.image.original,
                 kind: movie.kind,
                 score: movie.score,
                 episodes: movie.episodes,
-                isFavorite: true,
+                playlist: "favorites",
               }),
             })
           }
@@ -30,19 +31,20 @@ const CardActions = ({ movie }: CardActionsProps) => {
           <FaStar className="text-lg" />
         </button>
       </div>
-      <div className="tooltip w-full sm:w-3/4" data-tip="Add to Watch Later">
+      <div className="tooltip w-full md:w-3/4" data-tip="Add to Watch Later">
         <button
           className="btn btn-accent w-full"
           onClick={() =>
             fetch("http://localhost:3000/api/movies", {
               method: "POST",
               body: JSON.stringify({
+                id: movie.id,
                 name: movie.name,
                 image: movie.image.original,
                 kind: movie.kind,
                 score: movie.score,
                 episodes: movie.episodes,
-                isWatchLater: true,
+                playlist: "watch-later",
               }),
             })
           }

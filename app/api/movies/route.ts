@@ -19,12 +19,23 @@ export async function GET(request: NextApiRequest) {
     );
   }
 
-  const movies = await Prisma.movie.findMany({
-    where: {
-      isFavorite: playlist === "favorites" ? true : false,
-      isWatchLater: playlist === "watch-later" ? true : false,
-    },
-  });
+  let movies;
+
+  console.log(playlist);
+
+  if (playlist === "favorites") {
+    movies = await Prisma.movie.findMany({
+      where: {
+        isFavorite: true,
+      },
+    });
+  } else if (playlist === "watch-later") {
+    movies = await Prisma.movie.findMany({
+      where: {
+        isWatchLater: true,
+      },
+    });
+  }
 
   return NextResponse.json(movies);
 }
@@ -32,19 +43,66 @@ export async function GET(request: NextApiRequest) {
 export async function POST(request: NextRequest) {
   const body = await request.json();
 
-  const newMovie = await Prisma.movie.create({
-    data: {
-      name: body.name,
-      image: body.image,
-      kind: body.kind,
-      score: body.score,
-      episodes: body.episodes,
-      isFavorite: body.isFavorite,
-      isWatchLater: body.isWatchLater,
+  const movie = await Prisma.movie.findUnique({
+    where: {
+      id: body.id,
     },
   });
 
-  return NextResponse.json(newMovie, { status: 201 });
+  if (!movie) {
+    const newMovie = await Prisma.movie.create({
+      data: {
+        id: body.id,
+        name: body.name,
+        image: body.image,
+        kind: body.kind,
+        score: body.score,
+        episodes: body.episodes,
+        isFavorite: body.playlist === "favorites" ? true : false,
+        isWatchLater: body.playlist === "watch-later" ? true : false,
+      },
+    });
+
+    return NextResponse.json(newMovie, { status: 200 });
+  } else {
+    if (body.playlist === "favorites") {
+      if (movie.isFavorite) {
+        return NextResponse.json(
+          { error: "This movie is already your favorite!" },
+          { status: 400 }
+        );
+      } else {
+        const updatedMovie = await Prisma.movie.update({
+          where: {
+            id: body.id,
+          },
+          data: {
+            isFavorite: true,
+          },
+        });
+
+        return NextResponse.json(updatedMovie, { status: 200 });
+      }
+    } else if (body.playlist === "watch-later") {
+      if (movie.isWatchLater) {
+        return NextResponse.json(
+          { error: "This movie is already in your watch later playlist!" },
+          { status: 400 }
+        );
+      } else {
+        const updatedMovie = await Prisma.movie.update({
+          where: {
+            id: body.id,
+          },
+          data: {
+            isWatchLater: true,
+          },
+        });
+
+        return NextResponse.json(updatedMovie, { status: 200 });
+      }
+    }
+  }
 }
 
 export async function DELETE(request: NextRequest) {
