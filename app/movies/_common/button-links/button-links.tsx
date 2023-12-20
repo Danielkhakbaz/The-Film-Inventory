@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaStar, FaStopwatch } from "react-icons/fa6";
 
-const ButtonLinks = async () => {
+const ButtonLinks = () => {
   return (
     <div className="flex gap-4">
       <Link href="/movies?playlist=favorites">

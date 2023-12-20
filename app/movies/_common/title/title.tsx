@@ -3,7 +3,7 @@ type TitleProps = {
   title: string;
 };
 
-const Title = async ({ emoji, title }: TitleProps) => {
+const Title = ({ emoji, title }: TitleProps) => {
   return (
     <span className="flex justify-center items-center gap-4">
       {emoji}

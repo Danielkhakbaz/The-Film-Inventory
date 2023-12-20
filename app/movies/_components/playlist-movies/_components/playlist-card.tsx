@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import MotionComponent from "components/motion/motion-component";
 import { MovieType } from "components/card/card-type";
+import { FaLayerGroup, FaRegStar } from "react-icons/fa6";
 
 type PlaylistCardProps = {
   movie: MovieType;
@@ -50,6 +51,16 @@ const PlaylistCard = ({
           <h2 className="card-title line-clamp-1">{movie.name}</h2>
           <span className="badge badge-sm badge-info font-bold">
             {movie.kind}
+          </span>
+        </div>
+        <div className="card-actions justify-between gap-8">
+          <span className="text-red-500 flex items-center gap-2">
+            <FaLayerGroup className="text-lg" />
+            <span className="text-lg">{movie.episodes}</span>
+          </span>
+          <span className="text-yellow-500 flex items-center gap-2">
+            <FaRegStar className="text-lg" />
+            <span className="text-lg">{movie.score}</span>
           </span>
         </div>
         <button

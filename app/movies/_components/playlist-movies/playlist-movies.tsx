@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
+import Filter from "app/movies/_components/playlist-movies/_components/filter";
+import Sort from "app/movies/_components/playlist-movies/_components/sort";
 import PlaylistCard from "app/movies/_components/playlist-movies/_components/playlist-card";
 import { MovieType } from "components/card/card-type";
 
@@ -31,6 +33,10 @@ const PlaylistMovies = ({ playlist }: PlaylistMoviesProps) => {
   if (status === "authenticated") {
     return (
       <>
+        <div className="flex gap-4">
+          <Filter />
+          <Sort />
+        </div>
         <p className="text-3xl mb-4">
           {playlist === "favorites"
             ? "Favorite"
