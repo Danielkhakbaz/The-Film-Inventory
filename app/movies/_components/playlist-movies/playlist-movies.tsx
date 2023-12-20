@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import Filter from "app/movies/_components/playlist-movies/_components/filter";
 import Sort from "app/movies/_components/playlist-movies/_components/sort";
@@ -16,19 +17,60 @@ const PlaylistMovies = ({ playlist }: PlaylistMoviesProps) => {
 
   const { status } = useSession();
 
+  const searchParams = useSearchParams();
+
+  const filterSearchParams = searchParams.get("filter");
+  const sortSearchParams = searchParams.get("sort");
+
   useEffect(() => {
     const fetchMovies = async () => {
-      await fetch(`http://localhost:3000/api/movies?playlist=${playlist}`)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setMovies(data);
-        });
+      if (!filterSearchParams) {
+        if (sortSearchParams) {
+          await fetch(
+            `http://localhost:3000/api/movies?playlist=${playlist}&sort=${sortSearchParams}`
+          )
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              setMovies(data);
+            });
+        } else {
+          await fetch(`http://localhost:3000/api/movies?playlist=${playlist}`)
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              setMovies(data);
+            });
+        }
+      } else {
+        if (sortSearchParams) {
+          await fetch(
+            `http://localhost:3000/api/movies?playlist=${playlist}&filter=${filterSearchParams}&sort=${sortSearchParams}`
+          )
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              setMovies(data);
+            });
+        } else {
+          await fetch(
+            `http://localhost:3000/api/movies?playlist=${playlist}&filter=${filterSearchParams}`
+          )
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              setMovies(data);
+            });
+        }
+      }
     };
 
     fetchMovies();
-  }, [playlist]);
+  }, [playlist, sortSearchParams, filterSearchParams]);
 
   if (status === "authenticated") {
     return (
@@ -37,22 +79,28 @@ const PlaylistMovies = ({ playlist }: PlaylistMoviesProps) => {
           <Filter />
           <Sort />
         </div>
-        <p className="text-3xl mb-4">
-          {playlist === "favorites"
-            ? "Favorite"
-            : playlist === "watch-later" && "Watch Later"}
-        </p>
-        <div className="w-full grid grid-cols-2 justify-center items-center gap-8 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-          {movies.map((movie: MovieType, index: number) => (
-            <PlaylistCard
-              key={movie.id}
-              movie={movie}
-              index={index}
-              playlist={playlist}
-              setMovies={setMovies}
-            />
-          ))}
-        </div>
+        {movies.length > 0 ? (
+          <>
+            <p className="text-3xl mb-4">
+              {playlist === "favorites"
+                ? "Favorite"
+                : playlist === "watch-later" && "Watch Later"}
+            </p>
+            <div className="w-full grid grid-cols-2 justify-center items-center gap-8 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {movies.map((movie: MovieType, index: number) => (
+                <PlaylistCard
+                  key={movie.id}
+                  movie={movie}
+                  index={index}
+                  playlist={playlist}
+                  setMovies={setMovies}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <p className="text-2xl mt-4">No Movies in this playlist!</p>
+        )}
       </>
     );
   }

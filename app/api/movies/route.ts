@@ -7,6 +7,8 @@ export async function GET(request: NextApiRequest) {
   const url = new URL(request.url as string);
 
   const playlist = url.searchParams.get("playlist");
+  const kind = url.searchParams.get("filter");
+  const sort = url.searchParams.get("sort");
 
   if (!playlist || (playlist !== "favorites" && playlist !== "watch-later")) {
     return NextResponse.json(
@@ -33,6 +35,30 @@ export async function GET(request: NextApiRequest) {
         isWatchLater: true,
       },
     });
+  }
+
+  if (kind === "movies") {
+    movies = await Prisma.movie.findMany({
+      where: {
+        kind: "movies",
+      },
+    });
+  } else if (kind === "tv") {
+    movies = await Prisma.movie.findMany({
+      where: {
+        kind: "tv",
+      },
+    });
+  }
+
+  if (sort === "highest_rating") {
+    movies = movies?.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
+  } else if (sort === "lowest_rating") {
+    movies = movies?.sort((a, b) => parseFloat(a.score) - parseFloat(b.score));
+  } else if (sort === "most_episodes") {
+    movies = movies?.sort((a, b) => b.episodes - a.episodes);
+  } else if (sort === "least_episodes") {
+    movies = movies?.sort((a, b) => a.episodes - b.episodes);
   }
 
   return NextResponse.json(movies);

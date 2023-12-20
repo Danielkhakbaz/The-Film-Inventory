@@ -18,9 +18,9 @@ const Filter = () => {
       </div>
       <select
         className="select select-bordered"
-        value={filterSearchParams as string}
+        value={filterSearchParams ? filterSearchParams : "undefined"}
         onChange={(event) => {
-          if (event.currentTarget.value === "none") {
+          if (event.currentTarget.value === "undefined") {
             if (sortSearchParams) {
               router.push(
                 `/movies?playlist=${playlistSearchParams}&sort=${sortSearchParams}`
@@ -41,7 +41,7 @@ const Filter = () => {
           }
         }}
       >
-        <option value="none">None</option>
+        <option value="undefined">None</option>
         <option value="movies">Movies</option>
         <option value="tv">TV</option>
       </select>
