@@ -66,13 +66,13 @@ const PlaylistCard = ({
         <button
           className="btn btn-error"
           onClick={() => {
-            fetch(`http://localhost:3000/api/movies?playlist=${playlist}`, {
+            fetch(`https://the-film-inventory.vercel.app/api/movies?playlist=${playlist}`, {
               method: "DELETE",
               body: JSON.stringify({
                 id: movie.id,
               }),
             }).then(async () => {
-              fetch(`http://localhost:3000/api/movies?playlist=${playlist}`)
+              fetch(`https://the-film-inventory.vercel.app/api/movies?playlist=${playlist}`)
                 .then((res) => {
                   return res.json();
                 })

@@ -34,7 +34,7 @@ const PlaylistMovies = ({ playlist }: PlaylistMoviesProps) => {
       if (!filterSearchParams) {
         if (sortSearchParams) {
           await fetch(
-            `http://localhost:3000/api/movies?playlist=${playlist}&sort=${sortSearchParams}`
+            `https://the-film-inventory.vercel.app/api/movies?playlist=${playlist}&sort=${sortSearchParams}`
           )
             .then((res) => {
               return res.json();
@@ -43,7 +43,7 @@ const PlaylistMovies = ({ playlist }: PlaylistMoviesProps) => {
               setMovies(data);
             });
         } else {
-          await fetch(`http://localhost:3000/api/movies?playlist=${playlist}`)
+          await fetch(`https://the-film-inventory.vercel.app/api/movies?playlist=${playlist}`)
             .then((res) => {
               return res.json();
             })
@@ -54,7 +54,7 @@ const PlaylistMovies = ({ playlist }: PlaylistMoviesProps) => {
       } else {
         if (sortSearchParams) {
           await fetch(
-            `http://localhost:3000/api/movies?playlist=${playlist}&filter=${filterSearchParams}&sort=${sortSearchParams}`
+            `https://the-film-inventory.vercel.app/api/movies?playlist=${playlist}&filter=${filterSearchParams}&sort=${sortSearchParams}`
           )
             .then((res) => {
               return res.json();
@@ -64,7 +64,7 @@ const PlaylistMovies = ({ playlist }: PlaylistMoviesProps) => {
             });
         } else {
           await fetch(
-            `http://localhost:3000/api/movies?playlist=${playlist}&filter=${filterSearchParams}`
+            `https://the-film-inventory.vercel.app/api/movies?playlist=${playlist}&filter=${filterSearchParams}`
           )
             .then((res) => {
               return res.json();

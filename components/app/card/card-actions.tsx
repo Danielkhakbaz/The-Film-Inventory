@@ -39,7 +39,7 @@ const CardActions = ({ movie }: CardActionsProps) => {
           <button
             className="btn btn-warning"
             onClick={async () => {
-              const response = await fetch("http://localhost:3000/api/movies", {
+              const response = await fetch("https://the-film-inventory.vercel.app/api/movies", {
                 method: "POST",
                 body: JSON.stringify({
                   id: movie.id,
@@ -72,7 +72,7 @@ const CardActions = ({ movie }: CardActionsProps) => {
           <button
             className="btn btn-accent w-full"
             onClick={async () => {
-              const response = await fetch("http://localhost:3000/api/movies", {
+              const response = await fetch("https://the-film-inventory.vercel.app/api/movies", {
                 method: "POST",
                 body: JSON.stringify({
                   id: movie.id,
