@@ -43,7 +43,9 @@ const PlaylistMovies = ({ playlist }: PlaylistMoviesProps) => {
               setMovies(data);
             });
         } else {
-          await fetch(`https://the-film-inventory.vercel.app/api/movies?playlist=${playlist}`)
+          await fetch(
+            `https://the-film-inventory.vercel.app/api/movies?playlist=${playlist}`
+          )
             .then((res) => {
               return res.json();
             })

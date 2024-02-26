@@ -39,18 +39,21 @@ const CardActions = ({ movie }: CardActionsProps) => {
           <button
             className="btn btn-warning"
             onClick={async () => {
-              const response = await fetch("https://the-film-inventory.vercel.app/api/movies", {
-                method: "POST",
-                body: JSON.stringify({
-                  id: movie.id,
-                  name: movie.name,
-                  image: movie.image.original,
-                  kind: movie.kind,
-                  score: movie.score,
-                  episodes: movie.episodes,
-                  playlist: "favorites",
-                }),
-              });
+              const response = await fetch(
+                "https://the-film-inventory.vercel.app/api/movies",
+                {
+                  method: "POST",
+                  body: JSON.stringify({
+                    id: movie.id,
+                    name: movie.name,
+                    image: movie.image.original,
+                    kind: movie.kind,
+                    score: movie.score,
+                    episodes: movie.episodes,
+                    playlist: "favorites",
+                  }),
+                }
+              );
 
               setToastMessage({
                 message: "Saved in the favorites!",
@@ -72,18 +75,21 @@ const CardActions = ({ movie }: CardActionsProps) => {
           <button
             className="btn btn-accent w-full"
             onClick={async () => {
-              const response = await fetch("https://the-film-inventory.vercel.app/api/movies", {
-                method: "POST",
-                body: JSON.stringify({
-                  id: movie.id,
-                  name: movie.name,
-                  image: movie.image.original,
-                  kind: movie.kind,
-                  score: movie.score,
-                  episodes: movie.episodes,
-                  playlist: "watch-later",
-                }),
-              });
+              const response = await fetch(
+                "https://the-film-inventory.vercel.app/api/movies",
+                {
+                  method: "POST",
+                  body: JSON.stringify({
+                    id: movie.id,
+                    name: movie.name,
+                    image: movie.image.original,
+                    kind: movie.kind,
+                    score: movie.score,
+                    episodes: movie.episodes,
+                    playlist: "watch-later",
+                  }),
+                }
+              );
 
               setToastMessage({
                 message: "Saved in the watch later!",
