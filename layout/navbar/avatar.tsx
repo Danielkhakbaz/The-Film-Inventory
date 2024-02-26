@@ -7,12 +7,24 @@ import { useSession } from "next-auth/react";
 const Avatar = () => {
   const { data, status } = useSession();
 
+  const handleSignIn = async () => {
+    const { signIn } = await import("next-auth/react");
+
+    await signIn("github");
+  };
+
+  const handleSignOut = async () => {
+    const { signOut } = await import("next-auth/react");
+
+    await signOut();
+  };
+
   return (
     <>
       {status === "loading" ? (
         <div className="skeleton w-20" />
       ) : status === "authenticated" ? (
-        <Link href="http://localhost:3000/api/auth/signout">
+        <Link href="/" onClick={handleSignOut}>
           <div className="avatar w-full placeholder items-center gap-4">
             <div className="w-7 bg-red-400 text-neutral-content rounded-full">
               {data.user?.image ? (
@@ -32,8 +44,9 @@ const Avatar = () => {
       ) : (
         status === "unauthenticated" && (
           <Link
-            href="http://localhost:3000/api/auth/signin"
+            href="/"
             className="w-full border-2 lg:border-none"
+            onClick={handleSignIn}
           >
             Sign in
           </Link>
