@@ -2,7 +2,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { getServerSession } from "next-auth";
 import { AuthOptions } from "auth/authOptions";
-import MotionComponent from "components/common/motion/motion-component";
+import MotionComponent from "utils/motion/motion-component";
 import { MovieType } from "components/app/card/card-type";
 import { FaLayerGroup, FaRegStar } from "react-icons/fa6";
 

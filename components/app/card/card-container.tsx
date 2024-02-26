@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import MotionComponent from "components/common/motion/motion-component";
-import LoadMore from "components/common/load-more/load-more";
+import MotionComponent from "utils/motion/motion-component";
+import LoadMore from "utils/load-more/load-more";
 import { fetchMovies } from "actions/movies";
 import { useInView } from "react-intersection-observer";
 

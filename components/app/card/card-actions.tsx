@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { MovieType } from "components/app/card/card-type";
 import { FaStar } from "react-icons/fa6";
 
-const Toast = dynamic(() => import("components/common/toast/toast"), {
+const Toast = dynamic(() => import("utils/toast/toast"), {
   ssr: false,
 });
 

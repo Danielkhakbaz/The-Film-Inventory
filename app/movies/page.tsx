@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import MotionComponent from "components/common/motion/motion-component";
+import MotionComponent from "utils/motion/motion-component";
 
 const PlaylistNotFound = dynamic(
   () => import("components/movies/playlist-notfound/playlist-notfound"),

@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import Link from "next/link";
-import ThemeController from "components/common/theme-controller/theme-controller";
+import ThemeController from "utils/theme-controller/theme-controller";
 import Avatar from "layout/navbar/avatar";
 import { FaStar, FaStopwatch } from "react-icons/fa6";
 

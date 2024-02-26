@@ -2,7 +2,7 @@
 
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
-import MotionComponent from "components/common/motion/motion-component";
+import MotionComponent from "utils/motion/motion-component";
 import { MovieType } from "components/app/card/card-type";
 import { FaLayerGroup, FaRegStar } from "react-icons/fa6";
 

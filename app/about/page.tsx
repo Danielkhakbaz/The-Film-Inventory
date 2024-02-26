@@ -1,4 +1,4 @@
-import MotionComponent from "components/common/motion/motion-component";
+import MotionComponent from "utils/motion/motion-component";
 
 const AboutPage = async () => {
   return (
