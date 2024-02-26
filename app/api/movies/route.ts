@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { NextApiRequest } from "next";
 import Prisma from "prisma/client/client";
 
 type MoviesType = {
@@ -7,7 +6,7 @@ type MoviesType = {
   episodes: number;
 };
 
-export async function GET(request: NextApiRequest) {
+export async function GET(request: NextRequest) {
   const url = new URL(request.url as string);
 
   const playlist = url.searchParams.get("playlist");
