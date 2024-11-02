@@ -1,6 +1,6 @@
 # The Film Inventory
 
-<img src="https://github.com/Danielkhakbaz/Danielo-Portfolio/blob/master/public/images/projects/the-film-inventory/screen-shot.png" alt="The screen-shot of the film inventory" />
+<a href="https://the-film-inventory.vercel.app/" target="_blank" ><img src="https://github.com/Danielkhakbaz/Danielo-Portfolio/blob/master/public/images/projects/the-film-inventory/screen-shot.png" alt="The screen-shot of the film inventory" /></a>
 
 A comprehensive web application for managing and showcasing a collection of films, built with [Next.js](https://nextjs.org/). **The Film Inventory** allows users to explore film collections with user authentication, personalized recommendations, and seamless navigation, making it a valuable resource for movie enthusiasts and database administrators.
 
@@ -76,7 +76,7 @@ To set up this project locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/danielo-portfolio.git
+   git clone https://github.com/Danielkhakbaz/The-Film-Inventory
    cd danielo-portfolio
 
 2. **Install dependencies**:
