@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Film Inventory
 
-## Getting Started
+<img src="https://github.com/Danielkhakbaz/Danielo-Portfolio/blob/master/public/images/projects/the-film-inventory/screen-shot.png" alt="The screen-shot of the film inventory" />
 
-First, run the development server:
+A comprehensive web application for managing and showcasing a collection of films, built with [Next.js](https://nextjs.org/). **The Film Inventory** allows users to explore film collections with user authentication, personalized recommendations, and seamless navigation, making it a valuable resource for movie enthusiasts and database administrators.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Overview
+
+This platform enables users to store, categorize, and search through an extensive film inventory. Designed with a clean UI and powered by a robust backend, it supports easy maintenance and scalability. The project also uses Prisma for database management, ensuring efficient and secure data handling.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Development Scripts](#development-scripts)
+- [Folder Structure](#folder-structure)
+
+## Features
+
+- **Authentication**: Secure user login with session management using `next-auth` and Prisma.
+- **Film Management**: Allows users to add, edit, and remove films in the inventory.
+- **Categorization & Search**: Quickly find films by genre, release date, and other tags.
+- **Responsive Design**: Optimized for desktop and mobile devices.
+- **Interactive Animations**: Smooth and dynamic interactions with Framer Motion.
+
+## Technologies Used
+
+- **[Next.js](https://nextjs.org/)** - React framework for server-side rendering and static site generation.
+- **[React](https://reactjs.org/)** - JavaScript library for building user interfaces.
+- **[Prisma](https://www.prisma.io/)** - ORM for database modeling and management.
+- **[NextAuth.js](https://next-auth.js.org/)** - Authentication library for Next.js.
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework for designing modern web layouts.
+- **[Framer Motion](https://www.framer.com/motion/)** - Animation library for React components.
+- **[DaisyUI](https://daisyui.com/)** - Tailwind CSS-based component library for rapid UI development.
+
+## Folder Structure
+
+Here's an overview of the project structure:
+
+```plaintext
+the-film-inventory/
+├── public/                    # Public assets like images and icons
+│
+├── prisma/                    # Prisma schema and migration files
+│
+├── app/                       # Source directory for components and pages
+│
+├── auth/                      # Everything about authentication
+│
+├── components/                # Reusable UI components and shared widgets
+│
+├── layout/                    # Layout components for structuring pages
+│
+├── providers/                 # Context providers for managing global state and data
+│
+├── theme/                     # Theme settings for design consistency (colors, typography, etc.)
+│
+├── utils/                     # Utility functions
+│
+├── app/                       
+│   ├── api/                   # APIs written in JS for my full-stack next.js app
+│   ├── about/                 # About section (page for blog posts)
+│   └── movies/                # Movies section (page for blog posts)
+│
+├── .eslintrc.json             # ESLint configuration for code quality
+├── .prettierrc                # Prettier configuration for code formatting
+├── next.config.js             # Next.js configuration for app settings
+├── package.json               # Project metadata, scripts, and dependencies
+└── README.md                  # Documentation for project setup and usage
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To set up this project locally, follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/danielo-portfolio.git
+   cd danielo-portfolio
 
-## Learn More
+2. **Install dependencies**:
+   ```tsx
+   yarn
 
-To learn more about Next.js, take a look at the following resources:
+3. **Run the development server**:
+   ```tsx
+   yarn dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Open http://localhost:3000 in your browser to see the project**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Development Scripts
 
-## Deploy on Vercel
+Here are some helpful scripts to assist in the development and maintenance of this project:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```dev```: Runs the app in development mode. <br/><br/>
+```build```: Compiles the app for production. <br/><br/>
+```start```: Starts the production server. <br/><br/>
+```lint```: Lints and fixes files using ESLint. <br/><br/>
+```fix```: Formats files using Prettier. <br/><br/>
+```check-prettier```: Checks the code format without making changes.
